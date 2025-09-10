@@ -1,22 +1,28 @@
-﻿namespace ClassActivity
+﻿// program.cs
+// Version 2 - Calculates Maximum Heart Rate of a Person
+
+using System;
+
+class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        Console.WriteLine("=== Maximum Heart Rate Calculator (Version 2) ===");
+
+        Console.Write("Enter your age: ");
+        string input = Console.ReadLine();
+
+        if (int.TryParse(input, out int age) && age > 0)
         {
-            Console.WriteLine("Enter a sentence");
-            string sentence = Console.ReadLine();
-
-            int lettercount = 0;
-            foreach (char c in sentence)
-            {
-                if (char.IsLetter(c))
-                {
-                    lettercount++;
-                }
-            }
-
-            Console.WriteLine($"Number of letters in the sentence: {lettercount}");
+            int maxHeartRate = 220 - age;
+            Console.WriteLine($"Your estimated Maximum Heart Rate is: {maxHeartRate} bpm.");
         }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a positive number for age.");
+        }
+
+        Console.WriteLine("\nPress any key to exit...");
+        Console.ReadKey();
     }
 }
